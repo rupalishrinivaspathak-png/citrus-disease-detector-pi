@@ -1,5 +1,7 @@
 # 🌿 Citrus Disease Detector — Offline AI on Raspberry Pi
 
+![Device showing live results](docs/device-photo-3.jpg)
+
 An offline, standalone AI-powered device that detects citrus leaf diseases, estimates chlorophyll content, and assesses severity — all running locally on a Raspberry Pi with **no internet, cloud, or server dependency**.
 
 ## 📋 Overview
@@ -110,6 +112,10 @@ sudo systemctl start leafscanner.service
 - Diagnosed and replaced a faulty camera ribbon cable through systematic I2C-level debugging
 - Resolved TensorFlow Lite operator version incompatibilities by switching to `ai_edge_litert`
 - Reverse-engineered and precisely matched a multi-input model's exact preprocessing pipeline for accurate offline inference
+
+## 🎥 Demo
+
+[Watch the demo video](docs/demo-video.mp4)
 
 ## 📄 License
 
