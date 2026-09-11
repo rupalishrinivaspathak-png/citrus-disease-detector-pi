@@ -1,0 +1,66 @@
+{
+  "model_name": "Citrus_MultiTask_v3",
+  "classes": [
+    "Greening",
+    "Healthy",
+    "Tristeza"
+  ],
+  "severity_levels": [
+    0,
+    1,
+    2
+  ],
+  "num_colour_feats": 14,
+  "colour_feature_names": [
+    "R_mean",
+    "G_mean",
+    "B_mean",
+    "H_mean_norm",
+    "S_mean_norm",
+    "V_mean_norm",
+    "LAB_a_mean_norm",
+    "LAB_L_mean_norm",
+    "G_minus_B",
+    "G_minus_R",
+    "ExG",
+    "VARI",
+    "GLI",
+    "green_chromatic_coord"
+  ],
+  "img_height": 224,
+  "img_width": 224,
+  "loss_weights": {
+    "disease": 1.2,
+    "chlorophyll": 1.2,
+    "severity": 0.5
+  },
+  "class_weights_disease": {
+    "Greening": 3.223809523809524,
+    "Healthy": 0.867948717948718,
+    "Tristeza": 0.6503362151777138
+  },
+  "class_weights_severity": {
+    "sev0": 3.8908045977011496,
+    "sev1": 0.7946009389671361,
+    "sev2": 0.6736318407960199
+  },
+  "test_metrics": {
+    "disease_accuracy": 0.8620689655172413,
+    "disease_f1": 0.8740053050397878,
+    "severity_accuracy": 0.7241379310344828,
+    "severity_f1": 0.691470054446461,
+    "chlorophyll_mae": 11.07630729675293,
+    "chlorophyll_r2": 0.6941685676574707
+  },
+  "tensorflow_version": "2.20.0",
+  "final_weights_file": "final_model.weights.h5",
+  "chl_scaler_file": "chl_scaler.joblib",
+  "col_scaler_file": "col_scaler.joblib",
+  "tflite_tensor_indices": {
+    "image_input": 1,
+    "colour_input": 0,
+    "disease_output": 211,
+    "chlorophyll_output": 218,
+    "severity_output": 222
+  }
+}

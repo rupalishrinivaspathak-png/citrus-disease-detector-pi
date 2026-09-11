@@ -1,0 +1,7 @@
+numpy<2 
+opencv-python-headless 
+pillow 
+ai-edge-litert 
+RPi.GPIO 
+picamera2 
+luma.oled 
