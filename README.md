@@ -98,6 +98,8 @@ sudo systemctl start leafscanner.service
 ```
 ## 🆕 v2: Touchscreen Version
 
+![Touchscreen version showing live results](docs/touchscreen-demo.jpg)
+
 The device now uses a **3.2" SPI touchscreen** (ILI9340 display, XPT2046 touch) in place of the OLED and push button:
 
 - Live camera preview on the screen
