@@ -96,6 +96,36 @@ sudo systemctl daemon-reload
 sudo systemctl enable leafscanner.service
 sudo systemctl start leafscanner.service
 ```
+## 🆕 v2: Touchscreen Version
+
+The device now uses a **3.2" SPI touchscreen** (ILI9340 display, XPT2046 touch) in place of the OLED and push button:
+
+- Live camera preview on the screen
+- Tap the round shutter button to capture
+- Result screen shows the leaf photo, disease, confidence, severity and chlorophyll (CCI)
+- Starts automatically on boot, fully offline
+
+The original OLED + button version is kept in `main_oled.py`.
+
+### Touchscreen setup (Raspberry Pi OS Bookworm, 64-bit)
+Add to `/boot/firmware/config.txt`:
+```
+dtparam=spi=on
+dtoverlay=vc4-kms-v3d
+camera_auto_detect=1
+dtoverlay=waveshare32b,rotate=270,speed=32000000,fps=30
+```
+The `waveshare32b.dtbo` file comes from the Waveshare LCD-show repository and goes in `/boot/firmware/overlays/`.
+
+Add `vt.global_cursor_default=0` to the end of `/boot/firmware/cmdline.txt` to hide the console cursor.
+
+Give the camera access to the video memory:
+```bash
+echo 'SUBSYSTEM=="dma_heap", GROUP="video", MODE="0660"' | sudo tee /etc/udev/rules.d/99-dmaheap.rules
+sudo usermod -aG video,render pi
+sudo apt install -y python3-evdev
+```
+On first run, tap the 4 green calibration crosses. The calibration is saved to `calib.json`.
 
 ## 🔍 How It Works
 
